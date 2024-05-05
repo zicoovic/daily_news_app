@@ -27,6 +27,7 @@ class ArticleEntity extends Equatable {
       id,
       author,
       title,
+      description,
       url,
       urlToImage,
       publishedAt,

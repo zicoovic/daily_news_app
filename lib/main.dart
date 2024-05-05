@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/config/theme/app_themes.dart';
+import 'package:flutter_application_1/features/daily_news/presentation/bloc/remote/remote_article_bloc.dart';
+import 'package:flutter_application_1/features/daily_news/presentation/bloc/remote/remote_article_event.dart';
 import 'package:flutter_application_1/features/daily_news/presentation/pages/home/daily_news.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 import 'injection_container.dart';
 
@@ -14,8 +18,12 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
-      home: DailyNews(),
+    return BlocProvider<RemoteArticleBloc>(
+      create: (context) => s1()..add(const GetArticles()),
+      child: MaterialApp(
+          debugShowCheckedModeBanner: false,
+          theme: theme(),
+          home: const DailyNews()),
     );
   }
 }
