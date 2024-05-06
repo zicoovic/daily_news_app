@@ -43,7 +43,6 @@ _buildBody() {
             return ArticleWidget(
               article: state.articles![index],
             );
-            ;
           },
           itemCount: state.articles!.length,
         );
